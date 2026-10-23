@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="عيادة أسنان — د. سهر عمار ود. ليان عمار. عناية دقيقة، ثقة هادئة، وابتسامة تُصنع باهتمام."
+    />
+    <meta name="theme-color" content="#f6f3ec" />
+    <title>سهر × ليان — طب الأسنان</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=El+Messiri:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="preload" as="image" href="./images/1000259883.jpg" fetchpriority="high" />
+    <noscript>
+      <style>
+        [data-reveal] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
+
+    <header class="site-header" data-header>
+      <div class="site-header__shell">
+        <div class="site-header__inner">
+          <a class="brand" href="#main" aria-label="سهر × ليان — الصفحة الرئيسية">
+            <span class="brand__name">سهر × ليان</span>
+          </a>
+
+          <nav class="nav-desktop" aria-label="التنقل الرئيسي">
+            <a href="#services" data-nav-link>الخدمات</a>
+            <a href="#results" data-nav-link data-results-link hidden>قبل وبعد</a>
+            <a href="#doctors" data-nav-link>الفريق</a>
+            <a href="#philosophy" data-nav-link>طريقتنا</a>
+            <a href="#booking" data-nav-link>الحجز</a>
+          </nav>
+
+          <div class="header-actions">
+            <a class="header-book" data-book-trigger href="#booking">احجز موعدك</a>
+            <button
+              type="button"
+              class="menu-toggle"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+              aria-label="فتح قائمة التنقل"
+              data-menu-toggle
+            >
+              <span class="menu-toggle__label" data-menu-label aria-hidden="true">القائمة</span>
+              <span class="menu-toggle__lines" aria-hidden="true">
+                <span></span><span></span>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div class="site-header__baseline" aria-hidden="true"></div>
+      </div>
+    </header>
+
+    <div class="nav-reveal" id="mobile-menu" hidden data-mobile-menu>
+      <button type="button" class="nav-reveal__veil" data-menu-backdrop aria-label="إغلاق القائمة"></button>
+      <div
+        class="nav-reveal__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="nav-reveal-brand"
+        data-menu-drawer
+      >
+        <div class="nav-reveal__canvas">
+          <aside class="nav-reveal__rail" aria-hidden="true">
+            <span class="nav-reveal__rail-num" data-nav-rail-num>01</span>
+            <span class="nav-reveal__rail-mark" data-nav-rail-mark></span>
+          </aside>
+
+          <div class="nav-reveal__body">
+            <header class="nav-reveal__identity">
+              <p id="nav-reveal-brand" class="nav-reveal__brand">
+                <span class="nav-reveal__brand-part">سهر</span>
+                <span class="nav-reveal__brand-times" aria-hidden="true">×</span>
+                <span class="nav-reveal__brand-part">ليان</span>
+              </p>
+              <p id="nav-reveal-title" class="nav-reveal__descriptor" data-nav-descriptor></p>
+            </header>
+
+            <nav class="nav-reveal__index" aria-label="التنقل — هاتف">
+              <ol class="nav-reveal__list" data-nav-list>
+                <li class="nav-reveal__item nav-reveal__item--lead">
+                  <a
+                    class="nav-reveal__link"
+                    href="#services"
+                    data-nav-link
+                    data-menu-link
+                    data-nav-hint="عناية متكاملة — حسب احتياجك"
+                  >
+                    <span class="nav-reveal__ordinal" aria-hidden="true">01</span>
+                    <span class="nav-reveal__label">الخدمات</span>
+                  </a>
+                </li>
+                <li class="nav-reveal__item" data-results-link hidden>
+                  <a
+                    class="nav-reveal__link"
+                    href="#results"
+                    data-nav-link
+                    data-menu-link
+                    data-nav-hint="مقارنة بصرية للحالات"
+                  >
+                    <span class="nav-reveal__ordinal" aria-hidden="true">02</span>
+                    <span class="nav-reveal__label">قبل وبعد</span>
+                  </a>
+                </li>
+                <li class="nav-reveal__item nav-reveal__item--lead">
+                  <a
+                    class="nav-reveal__link"
+                    href="#doctors"
+                    data-nav-link
+                    data-menu-link
+                    data-nav-hint="سهر وليان — رعاية متصلة"
+                  >
+                    <span class="nav-reveal__ordinal" aria-hidden="true">02</span>
+                    <span class="nav-reveal__label">الفريق</span>
+                  </a>
+                </li>
+                <li class="nav-reveal__item nav-reveal__item--soft">
+                  <a
+                    class="nav-reveal__link"
+                    href="#philosophy"
+                    data-nav-link
+                    data-menu-link
+                    data-nav-hint="استماع — شرح — ثم القرار"
+                  >
+                    <span class="nav-reveal__ordinal" aria-hidden="true">03</span>
+                    <span class="nav-reveal__label">طريقتنا</span>
+                  </a>
+                </li>
+                <li class="nav-reveal__item nav-reveal__item--lead nav-reveal__item--booking">
+                  <a
+                    class="nav-reveal__link"
+                    href="#booking"
+                    data-nav-link
+                    data-menu-link
+                    data-nav-hint="خطوة واحدة نحو الموعد"
+                  >
+                    <span class="nav-reveal__ordinal" data-nav-ordinal-booking aria-hidden="true">04</span>
+                    <span class="nav-reveal__label">الحجز</span>
+                  </a>
+                </li>
+              </ol>
+            </nav>
+
+            <footer class="nav-reveal__context">
+              <p class="nav-reveal__context-text" data-nav-context-text aria-live="polite"></p>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main id="main">
+      <!-- Hero: نحت الضوء — عتبة الضوء -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__stage">
+          <div class="hero__canvas" aria-hidden="true">
+            <div class="hero__canvas-base"></div>
+            <div class="hero__canvas-ivory"></div>
+            <div class="hero__canvas-edge"></div>
+          </div>
+
+          <div class="hero__layout">
+            <div class="hero__editorial">
+              <p class="hero__kicker" data-reveal>سهر × ليان — طب الأسنان</p>
+              <h1 id="hero-title" class="hero__title" data-reveal>
+                <span class="hero__title-line">حيث تُصنع</span>
+                <span class="hero__title-line hero__title-line--accent">الابتسامة</span>
+              </h1>
+              <p class="hero__lead" data-reveal>
+                عناية دقيقة في مساحة هادئة — ثقة تبدأ قبل الكرسي.
+              </p>
+              <div class="hero__actions" data-reveal>
+                <button type="button" class="btn btn--primary hero__btn" data-book-trigger>احجز موعدك</button>
+                <a class="hero__link-secondary" href="#services">تعرّف على الخدمات</a>
+              </div>
+            </div>
+
+            <div class="hero__visual">
+              <figure class="hero__figure">
+                <img
+                  src="./images/1000259883.jpg"
+                  alt="د. سهر عمار ود. ليان عمار في العيادة"
+                  width="1200"
+                  height="900"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__ledger" data-reveal>
+          <p class="hero__signature">د. سهر عمار · د. ليان عمار</p>
+          <p class="hero__place">رام الله</p>
+        </div>
+      </section>
+
+      <!-- Services — فهرس تحريري -->
+      <section class="services" id="services" aria-labelledby="services-title">
+        <div class="services__shell">
+          <header class="services__head" data-reveal>
+            <h2 id="services-title" class="services__title">عناية بكل تفصيلة</h2>
+            <p class="services__intro">
+              من صحة الأسنان إلى جمال الابتسامة، نبدأ بفهم الحالة ونوضح الخيارات المناسبة.
+            </p>
+          </header>
+
+          <div class="services__catalog" data-services-list role="list" aria-label="قائمة الخدمات"></div>
+        </div>
+      </section>
+
+      <!-- Results — تظهر عند وجود حالات موثقة فقط -->
+      <section class="results" id="results" aria-labelledby="results-title" hidden>
+        <div class="results__shell">
+          <header class="results__head" data-reveal>
+            <h2 id="results-title" class="results__title">قبل وبعد</h2>
+            <p class="results__disclaimer" data-results-disclaimer hidden></p>
+          </header>
+          <div class="results__stage" data-results-stage aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- Doctors — ثنائي واحد -->
+      <section class="doctors" id="doctors" aria-labelledby="doctors-title">
+        <div class="doctors__shell">
+          <header class="doctors__masthead" data-reveal>
+            <p class="doctors__kicker">ثنائي واحد — رعاية متصلة</p>
+            <h2 id="doctors-title" class="doctors__title">سهر وليان عمار</h2>
+          </header>
+
+          <div class="doctors__diptych" data-reveal>
+            <div class="doctors__pair">
+              <figure class="doctors__figure doctors__figure--sahar">
+                <img
+                  src="./images/dr.saharammar-20261022-0001.jpg"
+                  alt="د. سهر عمار"
+                  width="800"
+                  height="1067"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="doctors__figure doctors__figure--layan">
+                <img
+                  src="./images/dr.layan_ammar-20261022-0002.jpg"
+                  alt="د. ليان عمار"
+                  width="800"
+                  height="1067"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </div>
+
+            <div class="doctors__voices">
+              <article class="doctors__chapter doctors__chapter--sahar">
+                <div class="doctors__copy">
+                  <h3 class="doctors__name">د. سهر عمار</h3>
+                  <p class="doctors__role" data-doctor-role>طبيبة أسنان تجميلية</p>
+                  <p class="doctors__note">
+                    حضور هادئ، واهتمام بالتفاصيل — تجربة في يد أمينة.
+                  </p>
+                  <div class="doctors__actions" data-doctor-actions="sahar">
+                    <a
+                      class="doctors__social doctors__social--instagram"
+                      data-doctor-instagram
+                      href="#"
+                      hidden
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >إنستغرام</a
+                    >
+                    <a
+                      class="doctors__social doctors__social--whatsapp"
+                      data-doctor-whatsapp
+                      href="#"
+                      hidden
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >واتساب</a
+                    >
+                  </div>
+                </div>
+              </article>
+              <article class="doctors__chapter doctors__chapter--layan">
+                <div class="doctors__copy">
+                  <h3 class="doctors__name">د. ليان عمار</h3>
+                  <p class="doctors__role" data-doctor-role>طبيبة أسنان</p>
+                  <p class="doctors__note">
+                    ثقة واضحة في التواصل، وخطوة بخطوة نحو ابتسامة مريحة.
+                  </p>
+                  <div class="doctors__actions" data-doctor-actions="layan">
+                    <a
+                      class="doctors__social doctors__social--instagram"
+                      data-doctor-instagram
+                      href="#"
+                      hidden
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >إنستغرام</a
+                    >
+                    <a
+                      class="doctors__social doctors__social--whatsapp"
+                      data-doctor-whatsapp
+                      href="#"
+                      hidden
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >واتساب</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Philosophy -->
+      <section class="philosophy" id="philosophy" aria-labelledby="philosophy-title">
+        <div class="philosophy__shell">
+          <header class="philosophy__head" data-reveal>
+            <h2 id="philosophy-title" class="philosophy__title">طريقتنا في العيادة</h2>
+          </header>
+          <figure class="philosophy__manifesto" data-reveal>
+            <blockquote>
+              <p class="philosophy__manifesto-line">العلاج لا يبدأ بأداة —</p>
+              <p class="philosophy__manifesto-line philosophy__manifesto-line--focus">
+                يبدأ بفهم ما يزعجك، وشرح ما يمكن فعله فعلاً.
+              </p>
+            </blockquote>
+          </figure>
+          <ol class="philosophy__path" data-reveal>
+            <li class="philosophy__path-item">
+              <span class="philosophy__path-index" aria-hidden="true">١</span>
+              <span class="philosophy__path-label">نستمع ونسأل قبل الفحص</span>
+            </li>
+            <li class="philosophy__path-item">
+              <span class="philosophy__path-index" aria-hidden="true">٢</span>
+              <span class="philosophy__path-label">تشخيص واضح — بلا استعجال</span>
+            </li>
+            <li class="philosophy__path-item">
+              <span class="philosophy__path-index" aria-hidden="true">٣</span>
+              <span class="philosophy__path-label">خطة مفهومة، وموافقتك قبل أي خطوة</span>
+            </li>
+          </ol>
+        </div>
+        <div class="philosophy__bridge" aria-hidden="true"></div>
+      </section>
+
+      <section class="booking" id="booking" aria-labelledby="booking-title">
+        <div class="booking__shell">
+          <div class="booking__panel" data-reveal>
+            <p class="booking__eyebrow">الخطوة التالية</p>
+            <h2 id="booking-title" class="booking__title">موعدك ينتظر</h2>
+            <p class="booking__lead">رسالة واحدة — نردّ بموعد يناسبك.</p>
+            <p class="booking__hint booking__hint--mobile">اضغط «احجز» أسفل الشاشة لاختيار الطبيبة.</p>
+            <div class="booking__actions">
+              <a class="booking__action booking__action--desktop" data-book-trigger href="#booking"
+                >احجز موعدك</a
+              >
+              <a
+                class="booking__maps"
+                data-clinic-maps
+                href="#"
+                hidden
+                target="_blank"
+                rel="noopener noreferrer"
+                >الموقع على الخريطة</a
+              >
+            </div>
+            <p class="booking__config-note" data-config-note hidden></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__mast">
+          <p class="site-footer__name">سهر × ليان</p>
+          <p class="site-footer__tag">طب الأسنان — رام الله</p>
+        </div>
+        <div class="site-footer__info">
+          <p class="site-footer__doctors">د. سهر عمار · د. ليان عمار</p>
+          <p class="site-footer__address" data-footer-contact>
+            رام الله — الطيرة — عمارة قصر آدم — الطابق الأول — مقابل معهد الطيرة
+          </p>
+        </div>
+        <nav class="site-footer__actions" aria-label="روابط العيادة" data-footer-actions hidden></nav>
+        <p class="site-footer__legal">© <span data-year></span> سهر × ليان — جميع الحقوق محفوظة</p>
+      </div>
+    </footer>
+
+    <button type="button" class="mobile-cta" data-book-trigger aria-label="احجز موعدك">
+      احجز موعدك
+    </button>
+
+    <div class="book-picker" data-book-picker hidden>
+      <div class="book-picker__veil" data-book-picker-close tabindex="-1" aria-hidden="true"></div>
+      <div
+        class="book-picker__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="book-picker-title"
+        data-book-picker-dialog
+      >
+        <button type="button" class="book-picker__dismiss" data-book-picker-close aria-label="إغلاق">
+          <span class="book-picker__dismiss-glyph" aria-hidden="true"></span>
+        </button>
+        <header class="book-picker__head">
+          <p class="book-picker__eyebrow">الخطوة التالية</p>
+          <h2 id="book-picker-title" class="book-picker__title">مع من تودّين الحجز؟</h2>
+          <p class="book-picker__lead">اختيار واحد — نفتح واتساب للطبيبة المناسبة.</p>
+        </header>
+        <div class="book-picker__grid" data-book-picker-choices></div>
+      </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

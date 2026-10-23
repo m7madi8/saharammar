@@ -1,0 +1,471 @@
+{
+  "baseUrl": "http://localhost:4174/",
+  "capturedAt": "2026-10-22T19:13:33.297Z",
+  "viewportsTested": [
+    {
+      "name": "320",
+      "width": 320,
+      "height": 800,
+      "prefix": "mobile-320"
+    },
+    {
+      "name": "375",
+      "width": 375,
+      "height": 812,
+      "prefix": "mobile-375"
+    },
+    {
+      "name": "390",
+      "width": 390,
+      "height": 844,
+      "prefix": "mobile-390"
+    },
+    {
+      "name": "768",
+      "width": 768,
+      "height": 1024,
+      "prefix": "tablet-768"
+    },
+    {
+      "name": "1024",
+      "width": 1024,
+      "height": 900,
+      "prefix": "desktop-1024"
+    },
+    {
+      "name": "1440",
+      "width": 1440,
+      "height": 900,
+      "prefix": "desktop-1440"
+    },
+    {
+      "name": "1920",
+      "width": 1920,
+      "height": 1080,
+      "prefix": "desktop-1920"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "audit/visual/mobile-320-full.png",
+      "prefix": "mobile-320",
+      "id": "full-page"
+    },
+    {
+      "file": "audit/visual/mobile-320-header.png",
+      "prefix": "mobile-320",
+      "id": "header"
+    },
+    {
+      "file": "audit/visual/mobile-320-hero.png",
+      "prefix": "mobile-320",
+      "id": "hero"
+    },
+    {
+      "file": "audit/visual/mobile-320-results.png",
+      "prefix": "mobile-320",
+      "id": "results"
+    },
+    {
+      "file": "audit/visual/mobile-320-services.png",
+      "prefix": "mobile-320",
+      "id": "services"
+    },
+    {
+      "file": "audit/visual/mobile-320-doctors.png",
+      "prefix": "mobile-320",
+      "id": "doctors"
+    },
+    {
+      "file": "audit/visual/mobile-320-philosophy.png",
+      "prefix": "mobile-320",
+      "id": "philosophy"
+    },
+    {
+      "file": "audit/visual/mobile-320-booking.png",
+      "prefix": "mobile-320",
+      "id": "booking"
+    },
+    {
+      "file": "audit/visual/mobile-320-footer.png",
+      "prefix": "mobile-320",
+      "id": "footer"
+    },
+    {
+      "file": "audit/visual/mobile-320-mobile-cta.png",
+      "prefix": "mobile-320",
+      "id": "mobile-cta"
+    },
+    {
+      "file": "audit/visual/mobile-375-full.png",
+      "prefix": "mobile-375",
+      "id": "full-page"
+    },
+    {
+      "file": "audit/visual/mobile-375-header.png",
+      "prefix": "mobile-375",
+      "id": "header"
+    },
+    {
+      "file": "audit/visual/mobile-375-hero.png",
+      "prefix": "mobile-375",
+      "id": "hero"
+    },
+    {
+      "file": "audit/visual/mobile-375-results.png",
+      "prefix": "mobile-375",
+      "id": "results"
+    },
+    {
+      "file": "audit/visual/mobile-375-services.png",
+      "prefix": "mobile-375",
+      "id": "services"
+    },
+    {
+      "file": "audit/visual/mobile-375-doctors.png",
+      "prefix": "mobile-375",
+      "id": "doctors"
+    },
+    {
+      "file": "audit/visual/mobile-375-philosophy.png",
+      "prefix": "mobile-375",
+      "id": "philosophy"
+    },
+    {
+      "file": "audit/visual/mobile-375-booking.png",
+      "prefix": "mobile-375",
+      "id": "booking"
+    },
+    {
+      "file": "audit/visual/mobile-375-footer.png",
+      "prefix": "mobile-375",
+      "id": "footer"
+    },
+    {
+      "file": "audit/visual/mobile-375-mobile-cta.png",
+      "prefix": "mobile-375",
+      "id": "mobile-cta"
+    },
+    {
+      "file": "audit/visual/mobile-390-full.png",
+      "prefix": "mobile-390",
+      "id": "full-page"
+    },
+    {
+      "file": "audit/visual/mobile-390-header.png",
+      "prefix": "mobile-390",
+      "id": "header"
+    },
+    {
+      "file": "audit/visual/mobile-390-hero.png",
+      "prefix": "mobile-390",
+      "id": "hero"
+    },
+    {
+      "file": "audit/visual/mobile-390-results.png",
+      "prefix": "mobile-390",
+      "id": "results"
+    },
+    {
+      "file": "audit/visual/mobile-390-services.png",
+      "prefix": "mobile-390",
+      "id": "services"
+    },
+    {
+      "file": "audit/visual/mobile-390-doctors.png",
+      "prefix": "mobile-390",
+      "id": "doctors"
+    },
+    {
+      "file": "audit/visual/mobile-390-philosophy.png",
+      "prefix": "mobile-390",
+      "id": "philosophy"
+    },
+    {
+      "file": "audit/visual/mobile-390-booking.png",
+      "prefix": "mobile-390",
+      "id": "booking"
+    },
+    {
+      "file": "audit/visual/mobile-390-footer.png",
+      "prefix": "mobile-390",
+      "id": "footer"
+    },
+    {
+      "file": "audit/visual/mobile-390-mobile-cta.png",
+      "prefix": "mobile-390",
+      "id": "mobile-cta"
+    },
+    {
+      "file": "audit/visual/mobile-390-menu-open.png",
+      "prefix": "mobile-390",
+      "id": "menu-open"
+    },
+    {
+      "file": "audit/visual/tablet-768-full.png",
+      "prefix": "tablet-768",
+      "id": "full-page"
+    },
+    {
+      "file": "audit/visual/tablet-768-header.png",
+      "prefix": "tablet-768",
+      "id": "header"
+    },
+    {
+      "file": "audit/visual/tablet-768-hero.png",
+      "prefix": "tablet-768",
+      "id": "hero"
+    },
+    {
+      "file": "audit/visual/tablet-768-results.png",
+      "prefix": "tablet-768",
+      "id": "results"
+    },
+    {
+      "file": "audit/visual/tablet-768-services.png",
+      "prefix": "tablet-768",
+      "id": "services"
+    },
+    {
+      "file": "audit/visual/tablet-768-doctors.png",
+      "prefix": "tablet-768",
+      "id": "doctors"
+    },
+    {
+      "file": "audit/visual/tablet-768-philosophy.png",
+      "prefix": "tablet-768",
+      "id": "philosophy"
+    },
+    {
+      "file": "audit/visual/tablet-768-booking.png",
+      "prefix": "tablet-768",
+      "id": "booking"
+    },
+    {
+      "file": "audit/visual/tablet-768-footer.png",
+      "prefix": "tablet-768",
+      "id": "footer"
+    },
+    {
+      "file": null,
+      "error": "TimeoutError: locator.scrollIntoViewIfNeeded: Timeout 29995.087999999996ms exceeded.\nCall log:\n  - attempting scroll into view action\n    2 × waiting for element to be stable\n      - element is not visible\n    - retrying scroll into view action\n    - waiting 20ms\n    2 × waiting for element to be stable\n      - element is not visible\n    - retrying scroll into view action\n      - waiting 100ms\n    55 × waiting for element to be stable\n       - element is not visible\n     - retrying scroll into view action\n       - waiting 500ms\n",
+      "prefix": "tablet-768",
+      "id": "mobile-cta"
+    },
+    {
+      "file": "audit/visual/desktop-1024-full.png",
+      "prefix": "desktop-1024",
+      "id": "full-page"
+    },
+    {
+      "file": "audit/visual/desktop-1024-header.png",
+      "prefix": "desktop-1024",
+      "id": "header"
+    },
+    {
+      "file": "audit/visual/desktop-1024-hero.png",
+      "prefix": "desktop-1024",
+      "id": "hero"
+    },
+    {
+      "file": "audit/visual/desktop-1024-results.png",
+      "prefix": "desktop-1024",
+      "id": "results"
+    },
+    {
+      "file": "audit/visual/desktop-1024-services.png",
+      "prefix": "desktop-1024",
+      "id": "services"
+    },
+    {
+      "file": "audit/visual/desktop-1024-doctors.png",
+      "prefix": "desktop-1024",
+      "id": "doctors"
+    },
+    {
+      "file": "audit/visual/desktop-1024-philosophy.png",
+      "prefix": "desktop-1024",
+      "id": "philosophy"
+    },
+    {
+      "file": "audit/visual/desktop-1024-booking.png",
+      "prefix": "desktop-1024",
+      "id": "booking"
+    },
+    {
+      "file": "audit/visual/desktop-1024-footer.png",
+      "prefix": "desktop-1024",
+      "id": "footer"
+    },
+    {
+      "file": null,
+      "error": "TimeoutError: locator.scrollIntoViewIfNeeded: Timeout 29995.568ms exceeded.\nCall log:\n  - attempting scroll into view action\n    2 × waiting for element to be stable\n      - element is not visible\n    - retrying scroll into view action\n    - waiting 20ms\n    2 × waiting for element to be stable\n      - element is not visible\n    - retrying scroll into view action\n      - waiting 100ms\n    56 × waiting for element to be stable\n       - element is not visible\n     - retrying scroll into view action\n       - waiting 500ms\n",
+      "prefix": "desktop-1024",
+      "id": "mobile-cta"
+    },
+    {
+      "file": "audit/visual/desktop-1440-full.png",
+      "prefix": "desktop-1440",
+      "id": "full-page"
+    },
+    {
+      "file": "audit/visual/desktop-1440-header.png",
+      "prefix": "desktop-1440",
+      "id": "header"
+    },
+    {
+      "file": "audit/visual/desktop-1440-hero.png",
+      "prefix": "desktop-1440",
+      "id": "hero"
+    },
+    {
+      "file": "audit/visual/desktop-1440-results.png",
+      "prefix": "desktop-1440",
+      "id": "results"
+    },
+    {
+      "file": "audit/visual/desktop-1440-services.png",
+      "prefix": "desktop-1440",
+      "id": "services"
+    },
+    {
+      "file": "audit/visual/desktop-1440-doctors.png",
+      "prefix": "desktop-1440",
+      "id": "doctors"
+    },
+    {
+      "file": "audit/visual/desktop-1440-philosophy.png",
+      "prefix": "desktop-1440",
+      "id": "philosophy"
+    },
+    {
+      "file": "audit/visual/desktop-1440-booking.png",
+      "prefix": "desktop-1440",
+      "id": "booking"
+    },
+    {
+      "file": "audit/visual/desktop-1440-footer.png",
+      "prefix": "desktop-1440",
+      "id": "footer"
+    },
+    {
+      "file": null,
+      "error": "TimeoutError: locator.scrollIntoViewIfNeeded: Timeout 29994.152000000002ms exceeded.\nCall log:\n  - attempting scroll into view action\n    2 × waiting for element to be stable\n      - element is not visible\n    - retrying scroll into view action\n    - waiting 20ms\n    2 × waiting for element to be stable\n      - element is not visible\n    - retrying scroll into view action\n      - waiting 100ms\n    55 × waiting for element to be stable\n       - element is not visible\n     - retrying scroll into view action\n       - waiting 500ms\n",
+      "prefix": "desktop-1440",
+      "id": "mobile-cta"
+    },
+    {
+      "file": "audit/visual/desktop-1920-full.png",
+      "prefix": "desktop-1920",
+      "id": "full-page"
+    },
+    {
+      "file": "audit/visual/desktop-1920-header.png",
+      "prefix": "desktop-1920",
+      "id": "header"
+    },
+    {
+      "file": "audit/visual/desktop-1920-hero.png",
+      "prefix": "desktop-1920",
+      "id": "hero"
+    },
+    {
+      "file": "audit/visual/desktop-1920-results.png",
+      "prefix": "desktop-1920",
+      "id": "results"
+    },
+    {
+      "file": "audit/visual/desktop-1920-services.png",
+      "prefix": "desktop-1920",
+      "id": "services"
+    },
+    {
+      "file": "audit/visual/desktop-1920-doctors.png",
+      "prefix": "desktop-1920",
+      "id": "doctors"
+    },
+    {
+      "file": "audit/visual/desktop-1920-philosophy.png",
+      "prefix": "desktop-1920",
+      "id": "philosophy"
+    },
+    {
+      "file": "audit/visual/desktop-1920-booking.png",
+      "prefix": "desktop-1920",
+      "id": "booking"
+    },
+    {
+      "file": "audit/visual/desktop-1920-footer.png",
+      "prefix": "desktop-1920",
+      "id": "footer"
+    },
+    {
+      "file": null,
+      "error": "TimeoutError: locator.scrollIntoViewIfNeeded: Timeout 29994.693ms exceeded.\nCall log:\n  - attempting scroll into view action\n    2 × waiting for element to be stable\n      - element is not visible\n    - retrying scroll into view action\n    - waiting 20ms\n    2 × waiting for element to be stable\n      - element is not visible\n    - retrying scroll into view action\n      - waiting 100ms\n    56 × waiting for element to be stable\n       - element is not visible\n     - retrying scroll into view action\n       - waiting 500ms\n",
+      "prefix": "desktop-1920",
+      "id": "mobile-cta"
+    }
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "resourceFailures": [],
+  "navTests": [
+    {
+      "viewport": "1440",
+      "link": "#results",
+      "hash": "#results"
+    },
+    {
+      "viewport": "1440",
+      "element": "hero-book",
+      "href": "#booking"
+    }
+  ],
+  "menuTests": [
+    {
+      "action": "open",
+      "viewport": "390",
+      "ok": true
+    },
+    {
+      "action": "close",
+      "viewport": "390",
+      "menuHidden": false
+    },
+    {
+      "action": "nav-doctors",
+      "viewport": "390",
+      "hash": "#doctors"
+    }
+  ],
+  "fontsLoaded": [
+    {
+      "family": "El Messiri",
+      "loaded": true
+    },
+    {
+      "family": "Alexandria",
+      "loaded": true
+    }
+  ],
+  "imagesLoaded": [
+    {
+      "src": "http://localhost:4174/assets/1000259883-C7eYSkaP.jpg",
+      "complete": true,
+      "naturalWidth": 1320,
+      "alt": "د. سهر عمار ود. ليان عمار في العيادة"
+    },
+    {
+      "src": "http://localhost:4174/assets/dr.saharammar-20261022-0001-BGRbCpwU.jpg",
+      "complete": true,
+      "naturalWidth": 1080,
+      "alt": "د. سهر عمار"
+    },
+    {
+      "src": "http://localhost:4174/assets/dr.layan_ammar-20261022-0002-D7RfhNnN.jpg",
+      "complete": true,
+      "naturalWidth": 885,
+      "alt": "د. ليان عمار"
+    }
+  ]
+}
