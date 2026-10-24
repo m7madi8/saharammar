@@ -1607,12 +1607,13 @@ html.js.motion-enabled [data-reveal].is-visible {
 }
 
 .doctors__actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.45rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
   width: 100%;
   margin-top: 0.35rem;
-  padding-top: 0.5rem;
+  padding-top: 0.65rem;
   border-top: 1px solid rgba(47, 74, 60, 0.08);
 }
 
@@ -1620,27 +1621,49 @@ html.js.motion-enabled [data-reveal].is-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  min-height: 2.35rem;
-  padding: 0.4rem 0.5rem;
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  font-weight: 600;
+  flex: 0 0 auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
   text-decoration: none;
-  color: var(--color-ink-soft);
-  border: 1px solid rgba(47, 74, 60, 0.16);
-  border-radius: var(--header-radius);
-  background: var(--color-porcelain);
+  color: var(--color-accent-deep);
+  border: 1px solid rgba(47, 74, 60, 0.14);
+  border-radius: 50%;
+  background: linear-gradient(165deg, var(--color-porcelain) 0%, rgba(246, 243, 236, 0.92) 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.65) inset,
+    0 0.35rem 0.85rem rgba(36, 58, 47, 0.06);
   transition:
     color 0.35s var(--ease-out),
     border-color 0.35s var(--ease-out),
-    background 0.35s var(--ease-out);
+    background 0.35s var(--ease-out),
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out);
+}
+
+.doctors__social .social-icon {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .doctors__social:hover {
-  color: var(--color-accent-deep);
-  border-color: rgba(47, 74, 60, 0.28);
-  background: var(--color-porcelain);
+  transform: translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 0.55rem 1.15rem rgba(36, 58, 47, 0.1);
+}
+
+.doctors__social--instagram:hover {
+  color: #c13584;
+  border-color: rgba(193, 53, 132, 0.32);
+  background: linear-gradient(165deg, #fff 0%, rgba(253, 240, 248, 0.95) 100%);
+}
+
+.doctors__social--whatsapp:hover {
+  color: #1fa855;
+  border-color: rgba(31, 168, 85, 0.35);
+  background: linear-gradient(165deg, #fff 0%, rgba(236, 252, 242, 0.95) 100%);
 }
 
 .doctors__social:focus-visible {
@@ -1652,8 +1675,31 @@ html.js.motion-enabled [data-reveal].is-visible {
   display: none;
 }
 
-.doctors__actions:has(.doctors__social:not([hidden]):only-of-type) {
-  grid-template-columns: 1fr;
+.social-icon {
+  flex-shrink: 0;
+}
+
+.book-picker__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  color: var(--color-accent-deep);
+  background: var(--color-accent-muted);
+  border: 1px solid rgba(47, 74, 60, 0.12);
+  transition:
+    color 0.35s var(--ease-out),
+    background 0.35s var(--ease-out),
+    border-color 0.35s var(--ease-out),
+    transform 0.35s var(--ease-out);
+}
+
+.social-icon--book {
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
 .doctors__reserve {
@@ -2880,17 +2926,11 @@ body.book-picker-open {
   line-height: 1.45;
 }
 
-.book-picker__action {
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--color-accent-deep);
-  white-space: nowrap;
-  padding-inline-start: 0.25rem;
-}
-
 .book-picker__choice:hover .book-picker__action {
-  color: var(--color-accent);
+  color: #1fa855;
+  background: rgba(31, 168, 85, 0.12);
+  border-color: rgba(31, 168, 85, 0.28);
+  transform: scale(1.05);
 }
 
 .book-picker.is-open .book-picker__choice {

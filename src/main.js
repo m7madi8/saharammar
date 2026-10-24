@@ -13,6 +13,7 @@ import {
   normalizeFacebookUrl,
   getClinicMapsHref,
 } from './config.js'
+import { createWhatsAppIcon } from './social-icons.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -163,7 +164,7 @@ function setupBookingPicker() {
 
     const action = document.createElement('span')
     action.className = 'book-picker__action'
-    action.textContent = 'واتساب'
+    action.appendChild(createWhatsAppIcon('social-icon social-icon--book'))
 
     btn.append(portrait, copy, action)
     choicesHost.appendChild(btn)
