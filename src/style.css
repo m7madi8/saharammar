@@ -1,7 +1,7 @@
 /* نحت الضوء — design tokens */
 :root {
-  --color-ivory: #f6f3ec;
-  --color-porcelain: #fdfcfa;
+  --color-ivory: #ffffff;
+  --color-porcelain: #ffffff;
   --color-ink: #121110;
   --color-ink-soft: #2a2724;
   --color-warm-gray: #7a746a;
@@ -116,7 +116,7 @@ html::-webkit-scrollbar-thumb,
 .book-picker__panel::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb);
   border-radius: 999px;
-  border: 1px solid rgba(253, 252, 250, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   background-clip: padding-box;
   box-shadow: 0 0 0 1px rgba(36, 58, 47, 0.12);
   transition: background-color 0.35s var(--ease-out);
@@ -232,7 +232,7 @@ code {
 .btn--light {
   background: var(--color-porcelain);
   color: var(--color-accent-deep);
-  border: 1px solid rgba(253, 252, 250, 0.35);
+  border: 1px solid rgba(47, 74, 60, 0.12);
 }
 
 .btn--light:hover {
@@ -867,7 +867,7 @@ body.menu-open .site-header {
   }
 }
 
-/* Hero — نحت الضوء: عتبة عاجية × عمود تصوير */
+/* Hero — نحت الضوء: عمود تصوير */
 .hero {
   --hero-radius: clamp(0.75rem, 1.45vw, 1.2rem);
   --hero-frame: rgba(47, 74, 60, 0.1);
@@ -984,7 +984,7 @@ body.menu-open .site-header {
 
 .hero__btn--ghost {
   border-color: rgba(47, 74, 60, 0.2);
-  background: rgba(253, 252, 250, 0.65);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .hero__link-secondary {
@@ -1063,6 +1063,12 @@ body.menu-open .site-header {
 html.js.motion-enabled [data-reveal]:not(.is-visible) {
   opacity: 0;
   transform: translateY(14px);
+}
+
+html.js.motion-enabled #services .services__catalog,
+html.js.motion-enabled #results:not([hidden]) .results__stage {
+  opacity: 1;
+  transform: none;
 }
 
 html.js.motion-enabled [data-reveal].is-visible {
@@ -1309,12 +1315,7 @@ html.js.motion-enabled [data-reveal].is-visible {
 .philosophy__bridge {
   height: clamp(3rem, 8vw, 5rem);
   margin-top: -1px;
-  background: linear-gradient(
-    180deg,
-    var(--color-porcelain) 0%,
-    var(--color-ivory) 55%,
-    var(--color-porcelain) 100%
-  );
+  background: var(--color-porcelain);
 }
 
 @media (min-width: 900px) {
@@ -1629,7 +1630,7 @@ html.js.motion-enabled [data-reveal].is-visible {
   color: var(--color-accent-deep);
   border: 1px solid rgba(47, 74, 60, 0.14);
   border-radius: 50%;
-  background: linear-gradient(165deg, var(--color-porcelain) 0%, rgba(246, 243, 236, 0.92) 100%);
+  background: linear-gradient(165deg, var(--color-porcelain) 0%, var(--color-ivory) 100%);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.65) inset,
     0 0.35rem 0.85rem rgba(36, 58, 47, 0.06);
@@ -1800,6 +1801,8 @@ html.js.motion-enabled [data-reveal].is-visible {
 
 /* Results — معرض كاروسيل */
 .results {
+  --color-ivory: #f6f3ec;
+  --color-porcelain: #fdfcfa;
   --results-radius: clamp(0.65rem, 1.2vw, 1rem);
   --results-frame: rgba(253, 252, 250, 0.14);
   padding: clamp(2.5rem, 6vw, 4rem) clamp(1.15rem, 4vw, 2.75rem);
@@ -1906,6 +1909,47 @@ html.js.motion-enabled [data-reveal].is-visible {
 
 .results-carousel__slide[hidden] {
   display: none;
+}
+
+.results-carousel__slide-title {
+  display: none;
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-porcelain);
+}
+
+@media (min-width: 900px) {
+  .results-carousel {
+    max-width: min(100%, 76rem);
+  }
+
+  .results-carousel__meta .results-carousel__case-title {
+    display: none;
+  }
+
+  .results-carousel__slide-title {
+    display: block;
+  }
+
+  .results-carousel__viewport {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.85rem, 2vw, 1.35rem);
+    align-items: start;
+  }
+
+  .results-carousel__slide.is-solo {
+    grid-column: 1 / -1;
+    width: min(100%, 26rem);
+    margin-inline: auto;
+  }
+
+  .results-compare__frame {
+    max-height: min(40vh, 380px);
+  }
 }
 
 @keyframes results-slide-in {
@@ -2070,6 +2114,8 @@ html.js.motion-enabled [data-reveal].is-visible {
 }
 
 .results-lightbox {
+  --color-ivory: #f6f3ec;
+  --color-porcelain: #fdfcfa;
   position: fixed;
   inset: 0;
   z-index: 300;

@@ -21,6 +21,24 @@ document.documentElement.classList.add('js')
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
+function escapeHtml(str) {
+  return String(str ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+}
+
+function bindMatchMediaChange(mq, handler) {
+  if (typeof mq.addEventListener === 'function') {
+    mq.addEventListener('change', handler)
+    return
+  }
+  if (typeof mq.addListener === 'function') {
+    mq.addListener(handler)
+  }
+}
+
 function setupDoctorRoles() {
   document.querySelectorAll('.doctors__chapter').forEach((chapter) => {
     const key = chapter.classList.contains('doctors__chapter--sahar') ? 'sahar' : 'layan'
@@ -362,14 +380,6 @@ function renderServices() {
     .join('')
 }
 
-function escapeHtml(str) {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-}
-
 function getResultsCases() {
   const set = results.activeSet
   if (set === 'temporary') {
@@ -426,6 +436,17 @@ function attachResultsCompare(root) {
   root.dataset.compareReady = '1'
 }
 
+const RESULTS_DESKTOP_MQ = '(min-width: 900px)'
+
+function getResultsSlidesPerView() {
+  return window.matchMedia(RESULTS_DESKTOP_MQ).matches ? 2 : 1
+}
+
+function resultsMaxStartIndex(total, slidesPerView) {
+  if (total <= 0) return 0
+  return Math.max(0, Math.floor((total - 1) / slidesPerView) * slidesPerView)
+}
+
 function setupResultsCarousel(cases) {
   const carousel = document.querySelector('[data-results-carousel]')
   if (!carousel || !cases.length) return
@@ -447,64 +468,108 @@ function setupResultsCarousel(cases) {
   const pad2 = (n) => String(n).padStart(2, '0')
 
   const setActiveCompare = () => {
+    const spv = getResultsSlidesPerView()
+    const visibleEnd = Math.min(total, index + spv)
+    const soloLast = spv === 2 && visibleEnd - index === 1
+
     slides.forEach((slide, i) => {
-      const on = i === index
-      slide.hidden = !on
+      const on = i >= index && i < visibleEnd
       slide.classList.toggle('is-active', on)
-      if (on) {
-        const cmp = slide.querySelector('[data-results-compare]')
-        if (cmp) {
-          delete cmp.dataset.compareReady
-          attachResultsCompare(cmp)
-        }
-      }
+      slide.classList.toggle('is-solo', on && soloLast)
+      if (on) slide.removeAttribute('hidden')
+      else slide.setAttribute('hidden', '')
+    })
+
+    slides.forEach((slide, i) => {
+      if (i < index || i >= visibleEnd) return
+      const cmp = slide.querySelector('[data-results-compare]')
+      if (!cmp) return
+      delete cmp.dataset.compareReady
+      attachResultsCompare(cmp)
     })
   }
 
   const renderMeta = () => {
-    if (titleEl) titleEl.textContent = cases[index].category || ''
-    if (counterEl) counterEl.textContent = `${pad2(index + 1)} / ${pad2(total)}`
+    const spv = getResultsSlidesPerView()
+    const maxStart = resultsMaxStartIndex(total, spv)
+    const visibleEnd = Math.min(total, index + spv)
+
+    if (titleEl) {
+      titleEl.textContent = spv === 1 ? cases[index].category || '' : ''
+    }
+
+    if (counterEl) {
+      if (spv > 1 && visibleEnd - index > 1) {
+        counterEl.textContent = `${pad2(index + 1)}–${pad2(visibleEnd)} / ${pad2(total)}`
+      } else {
+        counterEl.textContent = `${pad2(index + 1)} / ${pad2(total)}`
+      }
+    }
+
+    const activePage = spv > 1 ? Math.floor(index / spv) : index
     dotsHost?.querySelectorAll('[data-carousel-dot]').forEach((dot, i) => {
-      dot.classList.toggle('is-active', i === index)
-      dot.setAttribute('aria-current', i === index ? 'true' : 'false')
+      dot.classList.toggle('is-active', i === activePage)
+      dot.setAttribute('aria-current', i === activePage ? 'true' : 'false')
     })
+
     if (prevBtn) prevBtn.disabled = index <= 0
-    if (nextBtn) nextBtn.disabled = index >= total - 1
-    carousel.setAttribute('aria-label', `قبل وبعد — ${cases[index].category || ''}`)
+    if (nextBtn) nextBtn.disabled = index >= maxStart
+
+    const labelParts = cases.slice(index, visibleEnd).map((c) => c.category || '').filter(Boolean)
+    carousel.setAttribute('aria-label', `قبل وبعد — ${labelParts.join(' · ') || ''}`)
   }
 
   const go = (nextIndex) => {
-    const clamped = Math.max(0, Math.min(total - 1, nextIndex))
+    const spv = getResultsSlidesPerView()
+    const maxStart = resultsMaxStartIndex(total, spv)
+    let clamped = Math.max(0, Math.min(maxStart, nextIndex))
+    if (spv > 1) {
+      clamped = Math.min(maxStart, Math.floor(clamped / spv) * spv)
+    }
     if (clamped === index) return
     index = clamped
     setActiveCompare()
     renderMeta()
   }
 
-  prevBtn?.addEventListener('click', () => go(index - 1))
-  nextBtn?.addEventListener('click', () => go(index + 1))
+  const buildDots = () => {
+    if (!dotsHost) return
+    const spv = getResultsSlidesPerView()
+    const pageCount = Math.ceil(total / spv)
+    dotsHost.innerHTML = Array.from(
+      { length: pageCount },
+      (_, i) =>
+        `<button type="button" class="results-carousel__dot" data-carousel-dot aria-label="الصفحة ${pad2(i + 1)}"></button>`,
+    ).join('')
+    dotsHost.querySelectorAll('[data-carousel-dot]').forEach((dot, page) => {
+      dot.addEventListener('click', () => go(page * spv))
+    })
+  }
+
+  prevBtn?.addEventListener('click', () => go(index - getResultsSlidesPerView()))
+  nextBtn?.addEventListener('click', () => go(index + getResultsSlidesPerView()))
 
   carousel.addEventListener('keydown', (e) => {
+    const step = getResultsSlidesPerView()
     if (e.key === 'ArrowLeft') {
       e.preventDefault()
-      go(index + 1)
+      go(index + step)
     } else if (e.key === 'ArrowRight') {
       e.preventDefault()
-      go(index - 1)
+      go(index - step)
     }
   })
 
-  if (dotsHost) {
-    dotsHost.innerHTML = cases
-      .map(
-        (_, i) =>
-          `<button type="button" class="results-carousel__dot" data-carousel-dot aria-label="الحالة ${pad2(i + 1)}"></button>`,
-      )
-      .join('')
-    dotsHost.querySelectorAll('[data-carousel-dot]').forEach((dot, i) => {
-      dot.addEventListener('click', () => go(i))
-    })
-  }
+  buildDots()
+
+  const desktopMq = window.matchMedia(RESULTS_DESKTOP_MQ)
+  bindMatchMediaChange(desktopMq, () => {
+    const spv = getResultsSlidesPerView()
+    index = Math.min(index, resultsMaxStartIndex(total, spv))
+    buildDots()
+    setActiveCompare()
+    renderMeta()
+  })
 
   let touchStartX = 0
   viewport?.addEventListener(
@@ -519,8 +584,9 @@ function setupResultsCarousel(cases) {
     (e) => {
       const dx = (e.changedTouches[0]?.screenX ?? 0) - touchStartX
       if (Math.abs(dx) < 48) return
-      if (dx < 0) go(index + 1)
-      else go(index - 1)
+      const step = getResultsSlidesPerView()
+      if (dx < 0) go(index + step)
+      else go(index - step)
     },
     { passive: true },
   )
@@ -621,7 +687,8 @@ function renderResults() {
             .map(
               (item, i) => `
             <article class="results-carousel__slide" data-carousel-slide ${i === 0 ? '' : 'hidden'}>
-              ${resultsCompareMarkup(item, i === 0 ? 'eager' : 'lazy')}
+              <p class="results-carousel__slide-title">${escapeHtml(item.category || '')}</p>
+              ${resultsCompareMarkup(item, i < 2 ? 'eager' : 'lazy')}
             </article>
           `,
             )
@@ -642,7 +709,19 @@ function renderResults() {
     </div>
   `
 
-  setupResultsCarousel(cases)
+  try {
+    setupResultsCarousel(cases)
+  } catch (err) {
+    console.error('[sahar] setupResultsCarousel', err)
+  }
+}
+
+function revealSectionContent(...sectionIds) {
+  sectionIds.forEach((id) => {
+    const section = document.getElementById(id)
+    if (!section || section.hidden) return
+    section.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-visible'))
+  })
 }
 
 function setupHeader() {
@@ -936,6 +1015,10 @@ function setupMotion() {
 
   document.querySelectorAll('[data-reveal]').forEach((el) => {
     if (el.closest('.hero')) return
+    if (el.closest('#services, #results')) {
+      el.classList.add('is-visible')
+      return
+    }
     ScrollTrigger.create({
       trigger: el,
       start: 'top 88%',
@@ -992,6 +1075,8 @@ function initApp() {
     }
   }
   if (motionFailed) markAllRevealedFallback()
+  revealSectionContent('services', 'results')
+  ScrollTrigger.refresh()
   document.documentElement.dataset.ready = '1'
 }
 
